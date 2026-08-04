@@ -1,0 +1,77 @@
+experiment:
+  name: demo_segpvsg_ips
+
+device: cuda:0
+
+data:
+  data_dir: ./data
+  train_split: train
+  val_split: val
+  train_features: outputs/features/ips_train_vf
+  val_features: outputs/features/ips_val_vf
+  batch_size: 1
+
+model:
+  name: tfn
+  feature_dim: 256
+  hidden_dim: 1024
+  embed_dim: 256
+  fusion_heads: 8
+  num_categories: 126
+  num_relations: 57
+  config:
+    pair_input_size: 512
+    hidden_size: 256
+    num_props: 8
+    sigma: 9
+    dropout: 0.1
+    num_relations: 57
+    Temporal_Predictor:
+      d_model: 256
+      num_heads: 4
+      num_decoder_layers: 3
+      dropout: 0.1
+    Temporal_Attention:
+      d_model: 256
+      num_heads: 4
+      num_decoder_layers: 1
+      dropout: 0.1
+
+loss:
+  diversity_lambda: 0.146
+
+train:
+  save_root: outputs/results
+  epochs: 100
+  seed: 2024
+  lr: 0.0001
+  weight_decay: 0.01
+  accumulation_steps: 32
+  num_top_pairs: 50
+  num_max_samples: 100
+  max_frame_length: 900
+  pair_budget: 10000
+  pair_sample_budget: 5400
+  pair_crop_budget: 4500
+  loss_weights:
+    pair: 1.0
+    iou: 10.0
+    mask: 5.0
+    diversity: 25.0
+    prob: 5.0
+
+checkpoint:
+  enabled: true
+  start_epoch: 1
+  interval: 5
+
+eval:
+  enabled: true
+  start_epoch: 20
+  interval: 5
+  num_top_pairs: 100
+  temporal_margin: 2.0
+
+logging:
+  use_swanlab: false
+  project: SegPVSG
