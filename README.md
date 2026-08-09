@@ -4,9 +4,9 @@
 
 **Yikai Li**<sup>* 1</sup>**, Quhui Ke**<sup>* 1</sup>**, Jinglin Liang**<sup>1</sup>**, Zhiyuan Zhang**<sup>1</sup>**, Zhidi Lin**<sup>2</sup>**, Shuangping Huang**<sup>† 1 3</sup>
 
-<sup>1</sup>South China University of Technology, Guangzhou, China  
-<sup>2</sup>The University of Hong Kong, Hong Kong SAR, China  
-<sup>3</sup>Pazhou Laboratory, Guangzhou, China  
+<sup>1</sup> South China University of Technology, Guangzhou, China  
+<sup>2</sup> The University of Hong Kong, Hong Kong SAR, China  
+<sup>3</sup> Pazhou Laboratory, Guangzhou, China  
 
 <sup>*</sup> Equal contribution  <sup>†</sup> Corresponding author
 
